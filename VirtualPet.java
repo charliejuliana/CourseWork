@@ -20,7 +20,7 @@ public class VirtualPet {
 	public void play() {
         happiness += 2;
        	if (happiness > 10) {
-        	hunger = 10;
+        	happiness = 10;
         }
 		hunger += 1;
        	if (hunger > 10) {
@@ -31,14 +31,14 @@ public class VirtualPet {
 	public void passTime() {
     	happiness -= 1;
     	if (happiness < 0) {
-        	hunger = 0;
+        	happiness = 0;
     	}
 		hunger += 1;
     	if (hunger > 10) {
         	hunger = 10;
      	}
     }
-	
+
 	public String getName() {
         return name;
     }

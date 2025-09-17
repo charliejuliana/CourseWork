@@ -11,10 +11,10 @@ public class PetGame {
 
         while(run) {
             System.out.println("\nWhat would you like to do?");
-            System.out.println("1. Feed " + myPet.getName());
-            System.out.println("2. Play with " + myPet.getName());
-            System.out.println("3. Pass time while doing nothing with " + myPet.getName());
-            System.out.println("4. Quit");
+            System.out.println("1: Feed " + myPet.getName());
+            System.out.println("2: Play with " + myPet.getName());
+            System.out.println("3: Pass time while doing nothing with " + myPet.getName());
+            System.out.println("4: Quit");
             System.out.print("Choose an option: ");
             
             int decision;
@@ -50,11 +50,16 @@ public class PetGame {
 
             System.out.println(myPet);
 
-            if (myPet.getHunger() == 10) {
-                System.out.println("Oh no! " + myPet.getName() + " became too hungry. Game over.");
+            if (myPet.getHappiness() == 0 && myPet.getHunger() == 10) {
+                System.out.println("Oh no! " + myPet.getName() + " became too sad and too hungry. Game over.");
                 run = false;
-            } else if (myPet.getHappiness() == 0) {
+            }
+            else if (myPet.getHappiness() == 0) {
                 System.out.println("Oh no! " + myPet.getName() + " became too sad. Game over.");
+                run = false;
+            }
+            else if (myPet.getHunger() == 10) {
+                System.out.println("Oh no! " + myPet.getName() + " became too hungry. Game over.");
                 run = false;
             }
         }
