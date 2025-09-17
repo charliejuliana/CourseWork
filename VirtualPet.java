@@ -9,34 +9,47 @@ public class VirtualPet {
         this.hunger = 5;
     	this.happiness = 5;
 	}
-		
-	public void feed() {
-    	hunger -= 2;
-    	if (hunger < 0) {
+
+	private void normalizeHappiness() {
+		if (happiness > 10) {
+        	happiness = 10;
+        }
+		else if (happiness < 0) {
+        	happiness = 0;
+    	}
+	}
+
+	private void normalizeHunger() {
+		if (hunger > 10) {
+          	hunger = 10;
+    	}
+		else if (hunger < 0) {
         	hunger = 0;
         }
+	}
+	
+	private void setHappiness(int amount) {
+		happiness = amount;
+		normalizeHappiness();
+	}
+
+	private void setHunger(int amount) {
+		hunger = amount;
+		normalizeHunger();
+	}
+
+	public void feed() {
+    	setHunger(hunger - 2);
     }
 
 	public void play() {
-        happiness += 2;
-       	if (happiness > 10) {
-        	happiness = 10;
-        }
-		hunger += 1;
-       	if (hunger > 10) {
-          	hunger = 10;
-    	}
+        setHappiness(happiness + 2);
+		setHunger(hunger + 1);
     }
 
 	public void passTime() {
-    	happiness -= 1;
-    	if (happiness < 0) {
-        	happiness = 0;
-    	}
-		hunger += 1;
-    	if (hunger > 10) {
-        	hunger = 10;
-     	}
+    	setHappiness(happiness - 1);
+		setHunger(hunger + 1);
     }
 
 	public String getName() {
