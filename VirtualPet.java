@@ -38,6 +38,18 @@ public class VirtualPet {
         	hunger = 10;
      	}
     }
+	
+	public String getName() {
+        return name;
+    }
+
+    public int getHunger() {
+        return hunger;
+    }
+
+    public int getHappiness() {
+        return happiness;
+    }
 
 	public String toString() {
         return "Name: " + name + "\nHunger: " + hunger + "\nHappiness " + happiness;
